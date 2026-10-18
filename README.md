@@ -40,6 +40,12 @@ Requires Python 3.12 or newer on macOS. Open a terminal in this repository and r
 
 It prints, in order: the syntax check for both versions; the four constraint checks item by item, with 0 of 4 for the original and 4 of 4 for the patched version; the line count of each historical CSV (541 including the header for the main run); and the line count of the demo log (77). The constraint output is written to `evidence/constraint_verify.log`, overwriting that verification log on each run.
 
+To compare the two historical runs question by question (expected output: `Identical questions: 180/180`):
+
+```sh
+python3 tools/compare_runs.py
+```
+
 **No API key, network access or SDK installation is needed.** The original program imports `openai` at module level; the offline entry point supplies a placeholder module in the current Python process that satisfies the import only. Any attempt to construct an API client or open a socket raises and exits. The four checks execute only the original program's local state, event and logging functions — they use no model response. The syntax check does not run either program's main entry point and writes no bytecode cache.
 
 What this command reproduces is four local behavioural checks, plus line-count checks on historical files. **It does not re-run the historical model experiments, the demo, or the anachronism scan.** A line-count check verifies file size only; it does not establish that the contents are genuine or that the metrics in them are correct.
