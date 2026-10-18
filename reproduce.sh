@@ -3,7 +3,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 if ! command -v python3 >/dev/null 2>&1; then
-  echo "需要 Python 3.10 或更新版本。" >&2
+  echo "需要 Python 3.12 或更新版本。" >&2
   exit 1
 fi
 
@@ -18,8 +18,8 @@ import runpy
 import sys
 import types
 
-if sys.version_info < (3, 10):
-    raise SystemExit("需要 Python 3.10 或更新版本。")
+if sys.version_info < (3, 12):
+    raise SystemExit("需要 Python 3.12 或更新版本。")
 sys.stdout.reconfigure(encoding="utf-8")
 root = Path(sys.argv[1]).resolve()
 
