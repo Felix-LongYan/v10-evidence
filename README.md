@@ -24,6 +24,7 @@ The copies below keep their original contents. This assembly adds no experiments
 - `testbed/ask.py` — the original script that questions the model, scores it, and writes results. It lets a reader inspect how the earlier experiment was implemented. Running it by default calls the API; the offline entry point does not run it.
 - `testbed/runs/*/results.csv` — the per-item records of each historical run. `run-20261015-1607/results.csv` is the main run checked here: 541 lines including the header, i.e. 540 data records. **The other historical runs are also kept in full**; the offline entry point prints each one's actual line count and does not merge them into the main run.
 - `testbed/runs/*/summary.md` — the original summary for each historical run, keeping its own scope. The presence of a file, or its line count passing, is **not** re-verification of every metric in it.
+- `tools/compare_runs.py` — compares the two historical runs question by question: the six fields that define a question (kind, clauses, state, action, intervention, oracle answer) must match for all 180, and it prints each run's accuracy for the normal and out-of-distribution groups. Standard library only.
 - `reproduce.sh` — the offline verification entry point added here. It checks the syntax of both versions, runs the original constraint script, saves the output, and checks the line counts above. The wrapper collects only the four booleans the check script actually returns when computing the total; a missing check, an exception, or a mismatch exits non-zero. **It does not pre-fill any result.**
 - `README.md` — this document: what the files are, and the limits of the evidence.
 
@@ -31,7 +32,7 @@ The copies below keep their original contents. This assembly adds no experiments
 
 ## How to reproduce
 
-Requires Python 3.10 or newer on macOS. Open a terminal in this repository and run one command:
+Requires Python 3.12 or newer on macOS. Open a terminal in this repository and run one command:
 
 ```sh
 ./reproduce.sh
