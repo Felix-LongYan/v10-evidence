@@ -28,7 +28,7 @@ The copies below keep their original contents. This assembly adds no experiments
 - `reproduce.sh` — the offline verification entry point added here. It checks the syntax of both versions, runs the original constraint script, saves the output, and checks the line counts above. The wrapper collects only the four booleans the check script actually returns when computing the total; a missing check, an exception, or a mismatch exits non-zero. **It does not pre-fill any result.**
 - `README.md` — this document: what the files are, and the limits of the evidence.
 
-**Provenance.** The three original files in `src/`, the two existing logs, and `evidence/timeleak-runs/` come from the author's local project folder; `tools/` and `testbed/` come from the author's local working folder. The two existing logs were renamed to `demo_run.log` and `constraint_demo.log` on copying only; the source files were neither renamed nor moved.
+**Provenance.** The three original files in `src/`, the two existing logs, and `evidence/timeleak-runs/` come from the author's local project folder; `tools/` and `testbed/` come from the author's local working folder. The two existing logs were renamed to `demo_run.log` and `constraint_demo.log` on copying only; the source files were neither renamed nor moved. All code in this repository was written by AI coding assistants to the author's specification; the author designed the checks and verified their outputs.
 
 ## How to reproduce
 
